@@ -7,6 +7,8 @@ public class UserRegistration {
 	public final String FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$";
 	public final String LAST_NAME ="^[A-Z]{1}[a-z]{2,}$";
 	public final String EMAIL = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.[a-z]*[.a-z]?$";
+	public final String PHONE = "^[0-9]{2}\s?[0-9]{10}$";
+	public final String PASSWORD = "^.{8,}";
 	
 	public boolean checkFirstName(String first_name) //Method to check first name is valid or not
 	{
@@ -20,11 +22,24 @@ public class UserRegistration {
 		return pattern.matcher(last_name).matches();
 	}
 	
-	public boolean checkEmail(String email) //Method to check last name is valid or not
+	public boolean checkEmail(String email) //Method to check email is valid or not
 	{
 		Pattern pattern = Pattern.compile(EMAIL);
 		return pattern.matcher(email).matches();
 	}
+	
+	public boolean checkPhone(String phone_num) //Method to check phone number is valid or not
+	{
+		Pattern pattern = Pattern.compile(PHONE);
+		return pattern.matcher(phone_num).matches();
+	}
+	
+	public boolean checkPassword(String password) //Method to check Password is valid or not
+	{
+		Pattern pattern = Pattern.compile(PASSWORD);
+		return pattern.matcher(password).matches();
+	}
+	
 	public static void main(String[] args) //Main function
 	{
 		System.out.println("Enter first Name:");
@@ -60,6 +75,30 @@ public class UserRegistration {
 		{
 			System.out.println("Email is not valid");
 		}
+		
+		System.out.println("\nEnter Phone Number:");
+		String phone_num=sc.next();
+		if(obj.checkPhone(phone_num))
+		{
+			System.out.println("Phone number is valid!");
+		}
+		else
+		{
+			System.out.println("Phone Number is not valid");
+		}
+		
+		System.out.println("\nEnter Password of minimum 8 characters:");
+		String password=sc.next();
+		if(obj.checkPhone(password))
+		{
+			System.out.println("Password is valid!");
+		}
+		else
+		{
+			System.out.println("Password is not valid");
+		}
+
+
 
 		
 	}

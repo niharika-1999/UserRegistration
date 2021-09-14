@@ -52,6 +52,38 @@ public class UserRegTest {
 		assertEquals(true,result);
 	}
 	
+
+	@Test
+	public void PhoneReturnTrueWhenValid()
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result=obj.checkPhone("917407864650");
+		assertEquals(true,result);
+	}
+	
+	@Test
+	public void PhoneReturnFalseWhenInValid()
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result=obj.checkPhone("98765432");
+		assertEquals(false,result);
+	}
+	
+	@Test
+	public void PasswordReturnTrueWhenValid()
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result=obj.checkPhone("Password@123");
+		assertEquals(false,result);
+	}
+	
+	@Test
+	public void PasswordReturnFalseWhenInValid()
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result=obj.checkPhone("Pass");
+		assertEquals(false,result);
+	}
 	
 	
 	
