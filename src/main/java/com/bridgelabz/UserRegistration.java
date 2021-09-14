@@ -8,7 +8,7 @@ public class UserRegistration {
 	public final String LAST_NAME ="^[A-Z]{1}[a-z]{2,}$";
 	public final String EMAIL = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.[a-z]*[.a-z]?$";
 	public final String PHONE = "^[0-9]{2}\s?[0-9]{10}$";
-	public final String PASSWORD = "^(?=.*[A-Z])(?=.*[0-9]).{8,}$";
+	public final String PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+_=()]).{8,}$";
 	
 	public boolean checkFirstName(String first_name) //Method to check first name is valid or not
 	{
@@ -87,7 +87,7 @@ public class UserRegistration {
 			System.out.println("Phone Number is not valid");
 		}
 		
-		System.out.println("\nEnter Password of minimum 8 characters,1 uppercase and 1 number:");
+		System.out.println("\nEnter Password of minimum 8 characters,1 uppercase, 1 number and spl character :");
 		String password=sc.next();
 		if(obj.checkPhone(password))
 		{

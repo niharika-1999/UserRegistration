@@ -73,15 +73,15 @@ public class UserRegTest {
 	public void PasswordReturnTrueWhenValid()
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkPhone("Xyzpassword123");
-		assertEquals(false,result);
+		boolean result=obj.checkPassword("Password@123");
+		assertEquals(true,result);
 	}
 	
 	@Test
 	public void PasswordReturnFalseWhenInValid()
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkPhone("Pass");
+		boolean result=obj.checkPassword("passwordwrong");
 		assertEquals(false,result);
 	}
 	
