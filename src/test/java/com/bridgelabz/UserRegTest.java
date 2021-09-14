@@ -36,6 +36,23 @@ public class UserRegTest {
 		assertEquals(false,result);
 	}
 	
+	@Test
+	public void EmailReturnTrueWhenValid()
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result=obj.checkEmail("abc@yahoo.com");
+		assertEquals(true,result);
+	}
+	
+	@Test
+	public void EmailReturnFalseWhenInValid()
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result=obj.checkEmail("abc.@gmail.com");
+		assertEquals(true,result);
+	}
+	
+	
 	
 	
 
