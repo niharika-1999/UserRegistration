@@ -6,9 +6,9 @@ public class UserRegistration {
 	public static final Scanner sc=new Scanner(System.in);
 	public final String FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$";
 	public final String LAST_NAME ="^[A-Z]{1}[a-z]{2,}$";
-	public final String EMAIL = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.[a-z]*[.a-z]?$";
-	public final String PHONE = "^[0-9]{2}\s?[0-9]{10}$";
-	public final String PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=()]).{8,}$";
+	public final String EMAIL = "[a-z0-9_+-]*[.a-z0-9_+-]*?@[a-z0-9]*.[a-z]*[.a-z]*?$";
+	public final String PHONE = "^[0-9]{2}\\s?[0-9]{10}$";
+	public final String PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+-=()]).{8,}$";
 	
 	public boolean checkFirstName(String first_name) //Method to check first name is valid or not
 	{
