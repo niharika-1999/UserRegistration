@@ -8,7 +8,7 @@ public class UserRegistration {
 	public final String LAST_NAME ="^[A-Z]{1}[a-z]{2,}$";
 	public final String EMAIL = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.[a-z]*[.a-z]?$";
 	public final String PHONE = "^[0-9]{2}\s?[0-9]{10}$";
-	public final String PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+_=()]).{8,}$";
+	public final String PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=()]).{8,}$";
 	
 	public boolean checkFirstName(String first_name) //Method to check first name is valid or not
 	{
@@ -38,6 +38,19 @@ public class UserRegistration {
 	{
 		Pattern pattern = Pattern.compile(PASSWORD);
 		return pattern.matcher(password).matches();
+	}
+	
+	public void emailCheck(String email)
+	{
+		System.out.print(email+"---->");
+		if(checkEmail(email))
+		{
+			System.out.printf("Valid Email\n");
+		}
+		else
+		{
+			System.out.printf("Invalid Email\n");
+		}
 	}
 	
 	public static void main(String[] args) //Main function
@@ -97,10 +110,23 @@ public class UserRegistration {
 		{
 			System.out.println("Password is not valid");
 		}
+		
+		System.out.println("Enter the Email to Test");
+		obj.emailCheck("abc@yahoo.com");
+		obj.emailCheck("abc-100@yahoo.com");
+		obj.emailCheck("abc.100@yahoo.com");
+		obj.emailCheck("abc111@abc.com");
+		obj.emailCheck("abc-100@abc.net");
+		obj.emailCheck("abc.100@abc.com.au");
+		obj.emailCheck("abc@1.com");
+		obj.emailCheck("abc@gmail.com.com");
+		obj.emailCheck("abc+100@gmail.com");
+	}
+}
 
 
 
 		
-	}
+	
 
-}
+
