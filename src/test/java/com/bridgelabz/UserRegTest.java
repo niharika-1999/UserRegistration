@@ -37,7 +37,7 @@ public class UserRegTest {
 	}
 	
 	@Test
-	public void EmailReturnTrueWhenValid()
+	public void emailReturnTrueWhenValid()
 	{
 		UserRegistration obj = new UserRegistration();
 		boolean result=obj.checkEmail("abc@yahoo.com");
@@ -45,7 +45,7 @@ public class UserRegTest {
 	}
 	
 	@Test
-	public void EmailReturnFalseWhenInValid()
+	public void emailReturnFalseWhenInValid()
 	{
 		UserRegistration obj = new UserRegistration();
 		boolean result=obj.checkEmail("abc.@gmail.com");
@@ -54,7 +54,7 @@ public class UserRegTest {
 	
 
 	@Test
-	public void PhoneReturnTrueWhenValid()
+	public void phoneReturnTrueWhenValid()
 	{
 		UserRegistration obj = new UserRegistration();
 		boolean result=obj.checkPhone("917407864650");
@@ -62,7 +62,7 @@ public class UserRegTest {
 	}
 	
 	@Test
-	public void PhoneReturnFalseWhenInValid()
+	public void phoneReturnFalseWhenInValid()
 	{
 		UserRegistration obj = new UserRegistration();
 		boolean result=obj.checkPhone("98765432");
@@ -70,7 +70,7 @@ public class UserRegTest {
 	}
 	
 	@Test
-	public void PasswordReturnTrueWhenValid()
+	public void passwordReturnTrueWhenValid()
 	{
 		UserRegistration obj = new UserRegistration();
 		boolean result=obj.checkPassword("Password@123");
@@ -78,7 +78,7 @@ public class UserRegTest {
 	}
 	
 	@Test
-	public void PasswordReturnFalseWhenInValid()
+	public void passwordReturnFalseWhenInValid()
 	{
 		UserRegistration obj = new UserRegistration();
 		boolean result=obj.checkPassword("passwordwrong");
