@@ -40,7 +40,7 @@ public class UserRegistration {
 		return pattern.matcher(password).matches();
 	}
 	
-	public void emailCheck(String email)
+	public void emailSampleCheck(String email) //Method to validate given Email Samples
 	{
 		System.out.print(email+"---->");
 		if(checkEmail(email))
@@ -112,15 +112,15 @@ public class UserRegistration {
 		}
 		
 		System.out.println("Enter the Email to Test");
-		obj.emailCheck("abc@yahoo.com");
-		obj.emailCheck("abc-100@yahoo.com");
-		obj.emailCheck("abc.100@yahoo.com");
-		obj.emailCheck("abc111@abc.com");
-		obj.emailCheck("abc-100@abc.net");
-		obj.emailCheck("abc.100@abc.com.au");
-		obj.emailCheck("abc@1.com");
-		obj.emailCheck("abc@gmail.com.com");
-		obj.emailCheck("abc+100@gmail.com");
+		obj.emailSampleCheck("abc@yahoo.com");
+		obj.emailSampleCheck("abc@.com.my");
+		obj.emailSampleCheck("abc.100@yahoo.com");
+		obj.emailSampleCheck("abc111@abc.com");
+		obj.emailSampleCheck(".abc-100@abc.net");
+		obj.emailSampleCheck("abc.100@abc.com.au");
+		obj.emailSampleCheck("abc@1.com");
+		obj.emailSampleCheck("abc@gmail.com.com");
+		obj.emailSampleCheck("abc+100@gmail.com");
 	}
 }
 
