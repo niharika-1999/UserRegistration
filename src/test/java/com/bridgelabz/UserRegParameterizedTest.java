@@ -33,7 +33,7 @@ public class UserRegParameterizedTest {
 	}
 		
 	@Test
-	public void emailCheck()
+	public void emailTest() throws UserRegistrationCustomException
 	{
 		assertEquals(result,object.checkEmail(input));
 	}

@@ -3,128 +3,73 @@ import java.util.*;
 import java.util.regex.*;
 
 public class UserRegistration {
-	public static final Scanner sc=new Scanner(System.in);
-	public final String FIRST_NAME = "^[A-Z]{1}[a-z]{2,}$";
-	public final String LAST_NAME ="^[A-Z]{1}[a-z]{2,}$";
-	public final String EMAIL = "[a-z0-9_]*[.a-z0-9_]*?@[a-z]*.[a-z]*[.a-z]?$";
-	public final String PHONE = "^[0-9]{2}\s?[0-9]{10}$";
-	public final String PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=()]).{8,}$";
 	
-	public boolean checkFirstName(String first_name) //Method to check first name is valid or not
+	public boolean checkFirstName(String firstName) throws UserRegistrationCustomException
 	{
-		Pattern pattern = Pattern.compile(FIRST_NAME);
-		return pattern.matcher(first_name).matches();
+		Pattern newPattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
+		boolean ans = newPattern.matcher(firstName).matches();
+		if(ans==true)
+			return true;
+		else
+			throw new UserRegistrationCustomException("Please enter a Valid first name");
 	}
 	
-	public boolean checkLastName(String last_name) //Method to check last name is valid or not
+	public boolean checkLastName(String lastName) throws UserRegistrationCustomException
 	{
-		Pattern pattern = Pattern.compile(LAST_NAME);
-		return pattern.matcher(last_name).matches();
+		Pattern newPattern = Pattern.compile("^[A-Z]{1}[a-z]{2,}$");
+		boolean ans = newPattern.matcher(lastName).matches();
+		if(ans==true)
+			return true;
+		else
+			throw new UserRegistrationCustomException("Please enter a Valid last name");
 	}
 	
-	public boolean checkEmail(String email) //Method to check email is valid or not
+	public boolean checkEmail(String email) throws UserRegistrationCustomException
 	{
-		Pattern pattern = Pattern.compile(EMAIL);
-		return pattern.matcher(email).matches();
+		Pattern newPattern = Pattern.compile("[a-z0-9_+]*(.[a-z0-9_])*?@[a-z]*.(co|com|edu)(.[a-z])?$");
+		boolean ans = newPattern.matcher(email).matches();
+		if(ans==true)
+			return true;
+		else
+			throw new UserRegistrationCustomException("Please enter a valid Email ID.");		
 	}
 	
-	public boolean checkPhone(String phone_num) //Method to check phone number is valid or not
+	public boolean checkPhoneNum(String phoneNum) throws UserRegistrationCustomException
 	{
-		Pattern pattern = Pattern.compile(PHONE);
-		return pattern.matcher(phone_num).matches();
+		Pattern newPattern = Pattern.compile("^[0-9]{2}\s?[0-9]{10}$");
+		boolean ans = newPattern.matcher(phoneNum).matches();
+		if(ans==true)
+			return true;
+		else
+			throw new UserRegistrationCustomException("Please enter a Valid mobile number with country code at the beginning.");
 	}
 	
-	public boolean checkPassword(String password) //Method to check Password is valid or not
+	public boolean checkPassword(String password) throws UserRegistrationCustomException
 	{
-		Pattern pattern = Pattern.compile(PASSWORD);
-		return pattern.matcher(password).matches();
-	}
+		Pattern newPattern = Pattern.compile("^(?=.*[~!@#$%^&*-+=()])(?=.*[0-9])(?=.*[A-Z]).{8,}");
+		boolean ans = newPattern.matcher(password).matches();
+		if(ans==true)
+			return true;
+		else
+			throw new UserRegistrationCustomException("Please enter a Valid password. (Follow the password rules).");
+	}	
 	
-	public void emailSampleCheck(String email) //Method to validate given Email Samples
+	public void emailTest(String email) throws UserRegistrationCustomException
 	{
-		System.out.print(email+"---->");
-		if(checkEmail(email))
+		System.out.println("Sample Email Given to Test: ");
+		System.out.print("Sample Email " + email + " is: ");
+		if (checkEmail(email)) 
 		{
-			System.out.printf("Valid Email\n");
-		}
-		else
+			System.out.printf("Valid Email.\n");
+		} 
+		else 
 		{
-			System.out.printf("Invalid Email\n");
+			throw new UserRegistrationCustomException("Invalid Email. \n");
 		}
-	}
-	
-	public static void main(String[] args) //Main function
-	{
-		System.out.println("Enter first Name:");
-		String first_name=sc.next();
-		UserRegistration obj = new UserRegistration();
-		if(obj.checkFirstName(first_name))
-		{
-			System.out.println("First name is valid!");
-		}
-		else
-		{
-			System.out.println("First name is not valid");
-		}
-		
-		System.out.println("\nEnter Last Name:");
-		String last_name=sc.next();
-		if(obj.checkLastName(last_name))
-		{
-			System.out.println("Last name is valid!");
-		}
-		else
-		{
-			System.out.println("Last name is not valid");
-		}
-		
-		System.out.println("\nEnter Email:");
-		String email=sc.next();
-		if(obj.checkEmail(email))
-		{
-			System.out.println("Email is valid!");
-		}
-		else
-		{
-			System.out.println("Email is not valid");
-		}
-		
-		System.out.println("\nEnter Phone Number:");
-		String phone_num=sc.next();
-		if(obj.checkPhone(phone_num))
-		{
-			System.out.println("Phone number is valid!");
-		}
-		else
-		{
-			System.out.println("Phone Number is not valid");
-		}
-		
-		System.out.println("\nEnter Password of minimum 8 characters,1 uppercase, 1 number and spl character :");
-		String password=sc.next();
-		if(obj.checkPhone(password))
-		{
-			System.out.println("Password is valid!");
-		}
-		else
-		{
-			System.out.println("Password is not valid");
-		}
-		
-		System.out.println("Enter the Email to Test");
-		obj.emailSampleCheck("abc@yahoo.com");
-		obj.emailSampleCheck("abc@.com.my");
-		obj.emailSampleCheck("abc.100@yahoo.com");
-		obj.emailSampleCheck("abc111@abc.com");
-		obj.emailSampleCheck(".abc-100@abc.net");
-		obj.emailSampleCheck("abc.100@abc.com.au");
-		obj.emailSampleCheck("abc@1.com");
-		obj.emailSampleCheck("abc@gmail.com.com");
-		obj.emailSampleCheck("abc+100@gmail.com");
 	}
 }
-
-
+	
+	
 
 		
 	

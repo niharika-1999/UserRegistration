@@ -1,90 +1,170 @@
 package com.bridgelabz;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import org.junit.Assert;
 
 public class UserRegTest {
 	
 	@Test
-	public void firstNameReturnTrueWhenValid()
+	public void firstNameWhenInputIsValid() throws UserRegistrationCustomException 
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkFirstName("Xyzexample");
-		assertEquals(true,result);
+		boolean result;
+		try
+		{
+			result = obj.checkFirstName("Nih");
+			Assert.assertEquals(true,result);	
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}	
 	}
-	
-	@Test
-	public void firstNameReturFalseWhenInValid()
-	{
-		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkFirstName("xyzexample");
-		assertEquals(false,result);
-	}
-	
-	@Test
-	public void lastNameReturnTrueWhenValid()
-	{
-		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkFirstName("Lastname");
-		assertEquals(true,result);
-	}
-	
-	@Test
-	public void lastNameReturnFalseWhenInValid()
-	{
-		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkFirstName("lastname");
-		assertEquals(false,result);
-	}
-	
-	@Test
-	public void EmailReturnTrueWhenValid()
-	{
-		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkEmail("abc@yahoo.com");
-		assertEquals(true,result);
-	}
-	
-	@Test
-	public void EmailReturnFalseWhenInValid()
-	{
-		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkEmail("abc.@gmail.com");
-		assertEquals(true,result);
-	}
-	
 
 	@Test
-	public void PhoneReturnTrueWhenValid()
+	public void firstNameWhenInputIsInvalid() throws UserRegistrationCustomException 
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkPhone("917407864650");
-		assertEquals(true,result);
+		boolean result;
+		try
+		{
+			result = obj.checkFirstName("xyz");
+			Assert.assertEquals(false,result);	
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
 	@Test
-	public void PhoneReturnFalseWhenInValid()
+	public void lastNameWhenInputIsValid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkPhone("98765432");
-		assertEquals(false,result);
+		boolean result;
+		try
+		{
+			result = obj.checkLastName("Rao");
+			Assert.assertEquals(true,result);
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
 	@Test
-	public void PasswordReturnTrueWhenValid()
+	public void lastNameWhenInputIsInvalid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkPassword("Password@123");
-		assertEquals(true,result);
+		boolean result;
+		try
+		{
+			result = obj.checkLastName("rao");
+			Assert.assertEquals(false,result);	
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
 	@Test
-	public void PasswordReturnFalseWhenInValid()
+	public void emailWhenInputIsValid() throws UserRegistrationCustomException
 	{
 		UserRegistration obj = new UserRegistration();
-		boolean result=obj.checkPassword("passwordwrong");
-		assertEquals(false,result);
+		boolean result;
+		try
+		{
+			result = obj.checkEmail("nih19@gmail.com");
+			Assert.assertEquals(true,result);
+		}	
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
 	}
-	
+
+	@Test
+	public void emailWhenInputIsInvalid() throws UserRegistrationCustomException
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result;
+		try
+		{
+			result = obj.checkEmail("nih.com.in");
+			Assert.assertEquals(false,result);
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Test
+	public void mobileNoWhenInputIsValid() throws UserRegistrationCustomException
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result;
+		try
+		{
+			result = obj.checkPhoneNum("911234567890");
+			Assert.assertEquals(true,result);	
+		}
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Test
+	public void mobileNoWhenInputIsInvalid() throws UserRegistrationCustomException
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result;
+		try
+		{
+			result = obj.checkPhoneNum("1234");
+			Assert.assertEquals(false,result);
+		}	
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Test
+	public void passwordWhenInputIsValid() throws UserRegistrationCustomException
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result;
+		try
+		{
+			result = obj.checkPassword("Password@123");
+			Assert.assertEquals(true,result);
+		}	
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+
+	@Test
+	public void passwordWhenInputIsInvalid() throws UserRegistrationCustomException
+	{
+		UserRegistration obj = new UserRegistration();
+		boolean result;
+		try
+		{
+			result = obj.checkPassword("password");
+			Assert.assertEquals(false,result);	
+		}		
+		catch(UserRegistrationCustomException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+
 	
 	
 
